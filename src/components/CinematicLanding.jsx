@@ -19,8 +19,8 @@ const CONTROL = [
   [0.15, 15], // HOLD · assembled hero (shot 1)
   [0.27, 168],
   [0.43, 168], // HOLD · exploded centerpiece (shot 2)
-  [0.5, 205],
-  [0.61, 205], // HOLD · internals in body (shot 2)
+  [0.5, 208],
+  [0.61, 208], // HOLD · internals in body (shot 2)
   [0.72, 328],
   [0.83, 328], // HOLD · reassembled back panel (shot 4)
   [0.9, 398],
@@ -121,7 +121,7 @@ const FRAME_CX = 61
 const FRAME_CY = 50
 
 // label "hold" frames, served as ultra-high-res stills from /frames-hi
-const HOLD_FRAMES = [15, 168, 205, 328, 398]
+const HOLD_FRAMES = [15, 168, 208, 328, 398]
 
 const SCROLL_LENGTH = '+=760%'
 const INTRO_END = 0.24
