@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+
+/* ----- Lenis smooth scroll ----- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ----- Base ----- */
+:root {
+  --ink: #08080a;
+  --paper: #f4f1ea;
+  --muted: #9a958c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* ----- Custom utilities ----- */
+.tracking-mega {
+  letter-spacing: 0.42em;
+}
+.tracking-wide-2 {
+  letter-spacing: 0.18em;
+}
+
+.text-shadow-cinema {
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* ----- Animated glowing outline for annotation cards ----- */
+@property --glow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes glowSpin {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px; /* outline thickness */
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 0deg,
+    rgba(244, 241, 234, 0.04) 55deg,
+    rgba(244, 241, 234, 0.85) 105deg,
+    rgba(255, 255, 255, 1) 125deg,
+    rgba(244, 241, 234, 0.85) 145deg,
+    rgba(244, 241, 234, 0.04) 195deg,
+    transparent 250deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: glowSpin 4.5s linear infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+.scroll-cue {
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+
+.intro-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14rem;
+  border: 1px solid rgba(244, 241, 234, 0.36);
+  border-radius: 999px;
+  padding: 0.9rem 2rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: #f4f1ea;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(244, 241, 234, 0.08),
+    rgba(244, 241, 234, 0.02)
+  );
+  box-shadow: 0 0 28px rgba(244, 241, 234, 0.08);
+}

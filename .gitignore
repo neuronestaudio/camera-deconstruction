@@ -1,0 +1,34 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# Temp verification / build artifacts
+.tmp-frames/
+.tmp-shots/
+.tmp-verify.mjs
+.tmp-measure.mjs
+.tmp-pdf.mjs
+.dev.log
+
+# cutout backups
+frames-orig/
+frames-hi-orig/
+.tmp-cutout.py
+_cutout-preview/
